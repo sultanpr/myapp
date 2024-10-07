@@ -1,6 +1,7 @@
 
 <?php 
 
+$heading = "My Notes"; 
 require "functions.php";
-require "notes.view.php";
+require "views/notes.view.php";
 

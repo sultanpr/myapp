@@ -11,3 +11,7 @@ function dd($value){
     die();
 }
 
+function urIs($uri){
+    return $_SERVER['REQUEST_URI'] === $uri; 
+}
+
