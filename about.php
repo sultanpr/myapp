@@ -1,3 +1,3 @@
 <?php
 require "functions.php";
-require "about.view.php";
+require "views/about.view.php";
