@@ -4,16 +4,24 @@ require "functions.php";
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-if ($url === '/'){
-    require "controllers/index.php";
-} 
-else if($url === '/about'){
-    require "controllers/about.php";
-} 
-else if($url === '/notes'){
-    require "controllers/notes.php";
-} 
-else if($url === '/contact'){
-    require "controllers/contact.php";
+
+$routes = [
+    '/' => 'controllers/index.php',
+    '/about' => 'controllers/about.php',
+    '/notes' => 'controllers/notes.php',
+    '/contact' => 'controllers/contact.php'
+]; 
+
+if(array_key_exists($url, $routes)){
+    require $routes[$url]; 
+}else{
+    abort('404'); 
 }
 
+function abort($code){
+    http_response_code($code); 
+
+    require "views/{$code}.php";
+
+    die();
+}
