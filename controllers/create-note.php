@@ -12,9 +12,18 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         if(strlen($_POST['body']) === 0){
             $errors['body'] = 'A body is required'; 
         }
+
+        if(strlen($_POST['body']) > 1000){
+            $errors['body'] = 'You can not enter more than 100 characters'; 
+        }
+        
         
         if(strlen($_POST['title']) === 0){
             $errors['title'] = 'A title is required'; 
+        }
+
+        if(strlen($_POST['title']) > 200){
+            $errors['title'] = 'You can not input more than 200 characters'; 
         }
 
         if(empty($errors)){
