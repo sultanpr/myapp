@@ -12,7 +12,7 @@ $note = $db->query('select * from notes where user_id = :user and id = :id', [
     'user' => 1,
     'id' => $id
     
-    ] )->fetch();
+    ] )->findOrFail();
 
 
 require "views/note.view.php";
